@@ -1,6 +1,6 @@
-
+-- =============================================
 -- MACACOS DE AIM - Interface Melhorada
--- by Felcando
+-- =============================================
 
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
@@ -9,7 +9,7 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local Camera = workspace.CurrentCamera
 
---  CONFIGS 
+-- CONFIGS
 local Config = {
     AimbotEnabled = true,
     ESPEnabled = true,
@@ -22,7 +22,7 @@ local Config = {
     PanelVisible = true
 }
 
---  PLAYERS IGNORADOS 
+-- PLAYERS IGNORADOS
 local IgnoredPlayers = {
     ["LuvDaikii"] = true,
     ["SaikiiDev"] = true
@@ -41,7 +41,7 @@ RunService.RenderStepped:Connect(function()
     FOVCircle.Position = Vector2.new(Camera.ViewportSize.X/2, Camera.ViewportSize.Y/2)
 end)
 
--- GUI 
+--  GUI 
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "MacacosDeAim"
 screenGui.ResetOnSpawn = false
@@ -217,7 +217,7 @@ partBox.FocusLost:Connect(function()
     end
 end)
 
---  ESP (Apenas Nome) 
+--  ESP 
 local NameTags = {}
 
 local function createESP(player)
@@ -278,7 +278,7 @@ local function getClosestTarget()
     return closestPlayer
 end
 
---  AIMBOT 
+-- ====================== AIMBOT ======================
 RunService.RenderStepped:Connect(function()
     if not Config.AimbotEnabled then return end
     if not UserInputService:IsKeyDown(Config.AimbotKey) then return end
@@ -295,7 +295,7 @@ RunService.RenderStepped:Connect(function()
     end
 end)
 
--- ====================== ESP LOOP (Só Nome) ======================
+--  ESP LOOP
 RunService.RenderStepped:Connect(function()
     for player, nameTag in pairs(NameTags) do
         local char = player.Character
@@ -314,4 +314,4 @@ RunService.RenderStepped:Connect(function()
     end
 end)
 
-print("🐒 MACACOS DE AIM 
+print("🐒 MACACOS DE AIM )")
